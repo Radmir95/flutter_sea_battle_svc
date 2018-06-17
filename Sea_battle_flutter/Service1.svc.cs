@@ -12,9 +12,9 @@ namespace Sea_battle_flutter
     // ПРИМЕЧАНИЕ. Чтобы запустить клиент проверки WCF для тестирования службы, выберите элементы Service1.svc или Service1.svc.cs в обозревателе решений и начните отладку.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public string GetData()
         {
-            return string.Format("You entered: {0}", value);
+            return string.Format("You entered: {0}", "fesesf");
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
@@ -29,5 +29,19 @@ namespace Sea_battle_flutter
             }
             return composite;
         }
+
+        public void AddNewPlayer(Guid newId)
+        {
+            GamePlayers.AddNewPlayer(newId);
+            GamePlayers.ArrangePlayers(newId);
+        }
+
+
+        public bool IsReadyForTheGame(string userID) {
+            Guid userid = Guid.Parse(userID);
+            return GamePlayers.IsPlayerReadyForTheGame(userid);
+        }
+
+
     }
 }

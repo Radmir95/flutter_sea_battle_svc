@@ -13,13 +13,14 @@ namespace Sea_battle_flutter
     public interface IService1
     {
 
+        [WebGet(UriTemplate = "/GetData", ResponseFormat = WebMessageFormat.Json)]
+        string GetData();
+
         [OperationContract]
-        string GetData(int value);
+        void AddNewPlayer(Guid newId);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Добавьте здесь операции служб
     }
 
 
